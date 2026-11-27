@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile GIS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="explore.css">
+
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+    <header class="ribbon">
+        <div class="ribbon-content">
+            <h1>Hidden Gem Explorer</h1>
+        </div>
+
+        <div class="qr">
+            <button type="button" class="qr-button" onclick="showQR()">
+                QR Code
+            </button>
+        </div>
+    </header>
+    
+    <!--left panel-->
+    <div class="choice-panel">
+        <aside class="panel">
+            <h2>Select the Gems you want to explore 🗺️</h2>
+
+            <label for="cafe">Cafe</label>
+            <select id="cafe" name="cafe">
+                <option value="cafe1">☕︎</option>
+            </select>
+
+            <label for="restaurant">Restaurant</label>
+            <select id="restaurant" name="restaurant">
+                <option value="restaurant1">🍽️</option>
+            </select>
+
+            <label for="heritage">Heritage</label>
+            <select id="heritage" name="heritage">
+                <option value="heritage1">🏛️</option>
+            </select>
+
+            <label for="nature">Nature</label>
+            <select id="nature" name="nature">
+                <option value="nature1">🌳</option>
+            </select>
+
+            <label for="park">Park</label>
+            <select id="park" name="park">
+                <option value="park1">⛰️</option>
+            </select>
+
+            <button type="button" class="location-button" onclick="getRouteToDistrict()">
+                Locate Me Button
+            </button>
+        </aside>
+    
+        <!--map panel-->
+        <main class="middle-panel">
+            <div id="map"></div>
+        </main>
+
+        <!-- QR Modal -->
+        <div id="qrModal" class="qr-modal">
+            <div class="qr-modal-content">
+                <span class="qr-close" onclick="closeQR()">&times;</span>
+                <h2>Scan to Open on Mobile</h2>
+                <div id="qrcode"></div>
+                <p class="qr-url" id="qrUrlText"></p>
+            </div>
+        </div>
+
+    <!--footer-->
+    <footer class="footer">
+        <p>&copy; All rights reserved by Sneha Goyal ❆</p>
+    </footer>
+
+    <script src="javascript.js" defer></script>
+</body>
+</html>
