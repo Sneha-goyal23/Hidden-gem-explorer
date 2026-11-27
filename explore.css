@@ -1,0 +1,298 @@
+/*Styles for explore page*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height :100vh;
+    display:flex;
+    flex-direction:column;
+    font-family:"Asimovian", sans-serif;
+}
+
+/* Top Ribbon */
+.ribbon{
+    width:100%;
+    background:#4b2515;
+    padding: 8px 8px;
+}
+
+.ribbon h1{
+    color:#b59f5b;
+    font-family:"Asimovian", sans-serif;
+    font-size:2.5rem;
+}
+
+.qr-button{
+    position:absolute;
+    top: 10px;
+    right: 20px;
+    padding: 8px 12px;
+    background-color: #2a1c16;
+    color: #b59f5b;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family:"Asimovian", sans-serif;
+}
+
+.qr-button:hover {
+    background-color: #6f3821;
+}
+
+/* Main Section */
+.choice-panel{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.choice-panel h2{
+    font-family:"Asimovian", sans-serif;
+    font-size:1.5rem;
+    margin-bottom: 10px;
+}
+
+.search-container {
+    display: flex;
+    gap: 5px;
+    margin: 5px 0 8px 0;
+}
+
+.panel{
+    display: flex;
+    flex-direction:column;
+    gap:10px;
+    width: 25%;
+    height: 100%;
+    font-size: 1.0rem;
+    font-family: "Asimovian", sans-serif;
+    padding:10px;
+    background-color:#8b6b46;
+}
+
+.panel select{
+  width: 100%;
+  min-height: 30px;
+  font-size: 19px;
+  line-height: 1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.panel option:disabled {
+  color: black;
+}
+
+.location-button {
+    background-color: #2a1c16;
+    color: #b59f5b;
+    padding: 10px 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Asimovian", sans-serif
+}
+
+.location-button:hover {
+    background-color: #4b2515;
+}
+
+/* Middle panel */
+.middle-panel {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color:#e2e2e2;
+}
+
+/* Middle panel map setting*/
+#map {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #050505;
+}
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+.star {
+    color: #ccc;
+    transition: color 0.2s;
+}
+.star.active {
+    color: gold;
+}
+
+/* QR Modal */
+.qr-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.qr-modal.active {
+    display: flex;
+}
+
+.qr-modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 90vw;
+    width: 350px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    font-family: "Asimovian", sans-serif;
+}
+
+.qr-modal-content h2 {
+    color: #4b2515;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+#qrcode {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+#qrcode img, #qrcode canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.qr-url {
+    font-size: 0.8rem;
+    color: #555;
+    word-break: break-all;
+    margin-top: 10px;
+}
+
+.qr-close {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #4b2515;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.qr-close:hover {
+    color: #c0392b;
+}
+
+/* Make the button clickable */
+.qr-button {
+    cursor: pointer;
+}
+
+/* Footer */
+.footer{
+    width:100%;
+    background:#4b2515;
+    color:#fff;
+    text-align:center;
+    padding: 5px;
+    font-family: "Asimovian", sans-serif;
+    position: fixed;
+    bottom: 0;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE FIX (BULLETPROOF)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Allow scrolling on the whole page */
+    body {
+        height: auto !important;
+        overflow-y: auto !important;
+    }
+
+    /* 2. Stack panels vertically */
+    .choice-panel {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        padding-bottom: 0 !important; /* Removes the gap! */
+    }
+
+    /* 3. Left panel takes top part */
+    .panel {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important; /* Let it grow naturally */
+        padding: 15px !important;
+    }
+
+    .panel h2 {
+        font-size: 1.2rem !important;
+        text-align: center;
+    }
+
+    /* 4. Map panel takes bottom part */
+    .middle-panel {
+        width: 100% !important;
+        height: 50vh !important; /* Fixed height for map */
+        flex: none !important;
+        margin-bottom: 40px; /* Space for footer */
+    }
+
+    /* 5. CRITICAL: Tell Leaflet map to fill its container */
+    #map {
+        width: 100% !important;
+        height: 100% !important;
+        position: relative !important; /* Keep this so Leaflet doesn't break */
+        z-index: 1;
+    }
+
+    /* 6. Fix the ribbon and QR button */
+    .ribbon {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 15px !important;
+    }
+
+    .qr-button {
+        position: static !important; 
+        margin-top: 10px !important;
+        width: 100% !important;
+        max-width: 250px !important;
+    }
+
+    .ribbon h1 {
+        font-size: 1.8rem !important;
+        text-align: center !important;
+    }
+
+    /* 7. Footer sits at the bottom */
+    .footer {
+        position: relative !important;
+        margin-top: 0 !important;
+    }
+}
