@@ -1,0 +1,107 @@
+/*Styles for the landing page*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.landing-page{
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #8b6b46 0%,
+            #704326 60%,
+            #4b2515 100%
+        );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.symbol {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40rem;
+    opacity: 0.07;
+    z-index: -1;
+    pointer-events: none;
+}
+
+h1{
+    font-family: "Asimovian", sans-serif;
+    font-size: 3rem;
+    color: #b59f5b;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 6rem;
+}
+
+p{
+    font-family: "Asimovian", sans-serif;
+    font-size: 1.5rem;
+    color: #b59f5b;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 900px;
+}
+
+.explore-button {
+    background-color: #2a1c16;
+    color: #b59f5b;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Asimovian", sans-serif
+}
+
+.explore-button:hover {
+    background-color: #7a4e2d;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE FIX FOR LANDING PAGE
+   ========================================= */
+@media screen and (max-width: 768px) {
+    
+    .landing-page {
+        /* Add padding so text doesn't touch the screen edges */
+        padding: 20px; 
+    }
+
+    /* 1. Make the background symbol smaller so it fits */
+    .symbol {
+        font-size: 20rem; /* Reduced from 40rem */
+    }
+
+    /* 2. Scale down the main Title */
+    h1 {
+        font-size: 3rem !important; /* Reduced from 6rem */
+        margin-bottom: 1rem;
+    }
+
+    /* 3. Make paragraph text smaller and readable */
+    p {
+        font-size: 1.1rem !important; /* Reduced from 1.5rem */
+        max-width: 95%; /* Fit within phone screen */
+        margin-bottom: 2rem;
+    }
+
+    /* 4. Make the button slightly bigger for touch */
+    .explore-button {
+        font-size: 1.1rem;
+        padding: 12px 24px;
+        width: 100%;
+        max-width: 300px; /* Prevents it from stretching too wide */
+    }
+}
